@@ -1,0 +1,7 @@
+{{each movies movie}}
+  <div class="card">
+    <strong>{{movie.title}}</strong>
+    <span class="margin-top-s">{{movie.desc}}</span>
+    <em class="margin-top-m">{{movie.comment}}</em>
+  </div>
+{{/each}}

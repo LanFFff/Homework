@@ -7,8 +7,9 @@
 }
 
 #app {
-  background-image: linear-gradient(to top, #fde7f7 0%, #cbdcfb 100%);
   padding-top: 72px;
+  max-width: 1100px;
+  margin: 0 auto;
 }
 
 nav {
@@ -22,12 +23,8 @@ nav {
 .header {
   padding: 24px;
   height: 24px;
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(95, 169, 234, 0.2);
   backdrop-filter: blur(8px);
-}
-
-.header:hover {
-  background-color: white;
 }
 
 .header div {
