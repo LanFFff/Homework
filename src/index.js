@@ -4,6 +4,7 @@ import './styles/index.css';
 import $ from 'jquery';
 
 import Home from './views/home/index.art';
+import About from './views/about/index.art';
 import { homeInit } from './views/home';
 
 $(document).ready(function () {
@@ -17,7 +18,7 @@ $(document).ready(function () {
                 homeInit();
                 return;
             case '#/about':
-                routerView.html(Home({}));
+                routerView.html(About({}));
                 return;
             default:
                 return;
