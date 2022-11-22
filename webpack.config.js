@@ -27,6 +27,10 @@ module.exports = {
                 test: /\.art$/,
                 loader: 'art-template-loader',
             },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+            },
         ],
     },
     devServer: {

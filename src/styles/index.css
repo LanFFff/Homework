@@ -49,6 +49,55 @@ nav {
   display: flex;
 }
 
+.video {
+  height: 360px;
+}
+
+.video img {
+  background-image: url("../imgs/example.png");
+  background-size: cover;
+}
+
+.about {
+  margin-left: 24px;
+  line-height: 22px;
+}
+
+.about h4 {
+  margin: 0;
+}
+
+.about p {
+  font-size: 14px;
+  color: rgb(74, 72, 72);
+  line-height: 22px;
+  height: 290px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 13;
+  -webkit-box-orient: vertical;
+}
+
+.more-icon {
+  margin-top: -4px;
+  stroke: rgb(100, 147, 217);
+  float: right;
+  cursor: pointer;
+}
+
+.more-icon:hover {
+  stroke: rgb(125, 171, 239)
+}
+
+section {
+  width: 100%;
+}
+
+#music-list {
+  width: 100%;
+}
+
 .card {
   display: flex;
   flex-direction: column;
