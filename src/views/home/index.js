@@ -7,8 +7,6 @@ export const homeInit = () => {
         url: 'http://music.cyrilstudio.top/search?keywords=周兴哲',
         success: (res) => {
             const songs = res.result.songs;
-            console.log(songs);
-            console.log($('#music-list'));
             $('#music-list').append(card({ songs }));
         },
     });

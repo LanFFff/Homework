@@ -11,7 +11,7 @@ $(document).ready(function () {
 
     const onHashChange = () => {
         // 前端hash路由change
-        switch (location.hash) {
+        switch (window.location.hash) {
             case '#/home':
                 routerView.html(Home({}));
                 homeInit();
@@ -24,7 +24,7 @@ $(document).ready(function () {
         }
     };
 
-    onHashChange();
+    window.location.hash = '#/home';
 
     window.addEventListener('hashchange', onHashChange);
 });

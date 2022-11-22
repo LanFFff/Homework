@@ -34,7 +34,7 @@ module.exports = {
         ],
     },
     devServer: {
-        static: './dist',
+        static: './docs',
     },
     devtool: 'inline-source-map',
 };
