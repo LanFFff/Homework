@@ -13,11 +13,11 @@ $(document).ready(function () {
         // 前端hash路由change
         switch (location.hash) {
             case '#/home':
-                routerView.append(Home({}));
+                routerView.html(Home({}));
                 homeInit();
                 return;
             case '#/about':
-                routerView.append(Home({}));
+                routerView.html(Home({}));
                 return;
             default:
                 return;

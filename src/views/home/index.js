@@ -1,16 +1,17 @@
 import $ from 'jquery';
 import card from '../components/card.art';
 
-const movies = [
-    {
-        title: '永不失联的爱',
-        desc: '如果雨之后',
-        comment: '从一个角色来写歌',
-    },
-];
-
 export const homeInit = () => {
-    $('#music-list').append(card({ movies }));
+    // 获取前30首歌曲
+    $.ajax({
+        url: 'http://music.cyrilstudio.top/search?keywords=周兴哲',
+        success: (res) => {
+            const songs = res.result.songs;
+            console.log(songs);
+            console.log($('#music-list'));
+            $('#music-list').append(card({ songs }));
+        },
+    });
     $('.more-icon').click(() => {
         window.location.hash = '#/about';
     });
@@ -42,7 +43,6 @@ export const homeInit = () => {
             },
         });
     };
-    console.log($('#list'));
 
     // onYouTubeIframeAPIReady();
 };
