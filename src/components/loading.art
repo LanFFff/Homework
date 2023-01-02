@@ -1,0 +1,5 @@
+<div class="loading-container">
+    <div class="loading">
+        <div class="loading-inner"></div>
+    </div>
+</div>

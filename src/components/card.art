@@ -1,6 +1,6 @@
 {{each songs song}}
   <div class="card">
     <strong>{{song.name}}</strong>
-    <span class="margin-top-s">专辑：《{{song.al.name}}》</span>
+    <span class="margin-top-s">专辑：《{{song.alName}}》</span>
   </div>
 {{/each}}
