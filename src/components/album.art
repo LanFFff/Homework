@@ -1,5 +1,5 @@
 {{each albums album}}
-  <div class="album-card">
+  <div class="album-card card">
     <img class="margin-bottom-s" src="{{album.picUrl}}"/>
     <strong class="margin-top-s">{{album.name}}</strong>
     <em class="margin-top-s">{{album.publishTime}}</em>
