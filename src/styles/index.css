@@ -331,7 +331,7 @@ section {
   }
 
   .video {
-    width: 100%;
+    width: calc(100% - 24px);
   }
 
   .intro {
