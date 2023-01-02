@@ -1,0 +1,22 @@
+{{each songs song}}
+  <div class="card">
+    <div class="info">
+      <div class="title">
+        <strong>{{song.name}}</strong>
+      </div>
+      <span class="margin-top-s">专辑：《{{song.alName}}》</span>
+    </div>
+    <div class="right">
+      <div id="play-loading" style="display: none;">{{include './loading.art'}}</div>
+      <img class="play-button hidden-button stop-{{song.id}}" value="stop" src="../imgs/stop.svg" id="{{song.id}}">
+      <img class="play-button play-{{song.id}}" value="play" src="../imgs/play.svg" style="display: none;" id="{{song.id}}">
+      {{if song.like}} 
+        <img class="like-button like-{{song.id}}" value="like" src="../imgs/like.svg" id="{{song.id}}">
+        <img class="like-button dis-like-{{song.id}}" value="like" src="../imgs/dis-like.svg" style="display: none;" id="{{song.id}}">
+      {{else}}
+        <img class="like-button dis-like-{{song.id}}" value="dis-like" src="../imgs/dis-like.svg" id="{{song.id}}">
+        <img class="like-button like-{{song.id}}" value="like" src="../imgs/like.svg" style="display: none;" id="{{song.id}}">
+      {{/if}}
+    </div>
+  </div>
+{{/each}}

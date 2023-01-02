@@ -1,0 +1,9 @@
+<div class="album">
+    <section>
+        <div class="loading-container">{{include '../../components/loading.art'}}</div>
+    </section>
+    <section>
+        <div id="album-list" class="list"></div>
+    </section>
+</div>
+<script src="./index.js"></script>

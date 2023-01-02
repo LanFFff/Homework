@@ -1,0 +1,5 @@
+<div class="collect">
+    <section>
+        <div id="collect-list" class="list"></div>
+    </section>
+</div>
