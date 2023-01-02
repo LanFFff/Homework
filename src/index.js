@@ -15,7 +15,6 @@ $(document).ready(function () {
     const routerView = $('#routerView');
 
     const onHashChange = () => {
-        console.log(window.location.hash);
         // 前端hash路由change
         switch (window.location.hash) {
             case '#/home':

@@ -8,6 +8,7 @@ import { likeSongClick } from '../../utils';
 export const homeInit = () => {
     let songsTemp = [];
 
+    $('.loading-container').show();
     // 获取top50首歌曲
     $.ajax({
         url: 'https://netease-cloud-music-api-tan-xi.vercel.app/artist/top/song?id=980025',
@@ -31,6 +32,7 @@ export const homeInit = () => {
                 } else return item;
             });
 
+            $('.loading-container').hide();
             $('#music-list').append(card({ songs: songsTemp }));
 
             playSongClick();
@@ -40,13 +42,14 @@ export const homeInit = () => {
     });
 
     $('#search-submit').click(() => {
-        const key = $('#search-key').val();
         $('#music-list').empty();
-        $('#music-list').append(loading);
+        $('.loading-container').show();
+
+        const key = $('#search-key').val();
+
         $.ajax({
             url: 'https://netease-cloud-music-api-tan-xi.vercel.app/search?keywords=周兴哲 ' + key,
             success: (res) => {
-                console.log(res);
                 // 筛选出周兴哲演唱歌曲
                 const songs = res.result.songs
                     .filter((item) => item.artists[0].id == 980025)
@@ -57,7 +60,7 @@ export const homeInit = () => {
                             id: item.id,
                         };
                     });
-                $('#music-list').empty();
+                $('.loading-container').hide();
                 $('#music-list').append(card({ songs }));
             },
         });

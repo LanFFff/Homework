@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import loading from './components/loading.art';
 
 // 注册播放音乐点击事件
 export const playSongClick = () => {
@@ -13,6 +14,8 @@ export const playSongClick = () => {
             $('.play-' + id).hide();
         } else {
             // 播放
+            $('.stop-' + id).hide();
+            $('#play-loading').show();
             $.ajax({
                 url: 'https://netease-cloud-music-api-tan-xi.vercel.app/song/url?id=' + id,
                 success: (res) => {
@@ -20,8 +23,14 @@ export const playSongClick = () => {
                     $('#player-source').attr('src', song_url);
                     player.load();
                     player.play();
-                    $('.stop-' + id).hide();
+                    $('#play-loading').hide();
                     $('.play-' + id).show();
+
+                    player.addEventListener('pause', () => {
+                        // 监听歌曲结束
+                        $('.stop-' + id).show();
+                        $('.play-' + id).hide();
+                    });
                 },
             });
         }

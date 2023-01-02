@@ -12,7 +12,7 @@ export const collectInit = () => {
     const collect = collectLocal ? JSON.parse(collectLocal) : [];
     songsTemp = collect;
 
-    $('#collect-list').append(card({ songs: songsTemp }));
+    $('#collect-list').append(card({ songs: collect }));
     playSongClick();
     likeSongClick(songsTemp);
 };
