@@ -3,6 +3,33 @@ import card from '../../components/card.art';
 import loading from '../../components/loading.art';
 
 export const homeInit = () => {
+    const playSong = () => {
+        $('.play-button').click((e) => {
+            const playButton = $(e.target);
+            const id = playButton.attr('id');
+            const player = $('#song-player')[0];
+            if (playButton.attr('value') == 'play') {
+                // 暂停
+                player.pause();
+                $('.stop-' + id).show();
+                $('.play-' + id).hide();
+            } else {
+                // 播放
+                $.ajax({
+                    url: 'https://netease-cloud-music-api-tan-xi.vercel.app/song/url?id=' + id,
+                    success: (res) => {
+                        const song_url = res.data[0].url;
+                        $('#player-source').attr('src', song_url);
+                        player.load();
+                        player.play();
+                        $('.stop-' + id).hide();
+                        $('.play-' + id).show();
+                    },
+                });
+            }
+        });
+    };
+
     // 获取top50首歌曲
     $.ajax({
         url: 'https://netease-cloud-music-api-tan-xi.vercel.app/artist/top/song?id=980025',
@@ -11,9 +38,12 @@ export const homeInit = () => {
                 return {
                     name: item.name,
                     alName: item.al.name,
+                    id: item.id,
                 };
             });
             $('#music-list').append(card({ songs }));
+
+            playSong();
         },
     });
 
@@ -32,6 +62,7 @@ export const homeInit = () => {
                         return {
                             name: item.name,
                             alName: item.album.name,
+                            id: item.id,
                         };
                     });
                 $('#music-list').empty();
@@ -61,7 +92,7 @@ export const homeInit = () => {
     };
 
     const onYouTubeIframeAPIReady = () => {
-        player = new YT.Player('player', {
+        player = new YT.Player('video-player', {
             height: '360',
             width: '640',
             videoId: 'eZh1mC1vPgw',

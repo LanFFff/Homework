@@ -51,6 +51,7 @@ nav {
 .content section {
   margin: 24px;
   display: flex;
+  justify-content: space-between;
 }
 
 .video {
@@ -115,7 +116,7 @@ section {
 
 .card {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   padding: 24px;
   width: calc(33% - 24px);
   margin-bottom: 24px;
@@ -126,6 +127,25 @@ section {
 
 .card:hover {
   box-shadow: 0px 4px 16px 0px rgb(37 41 49 / 8%);
+}
+
+.card .info {
+  display: flex;
+  flex-direction: column;
+}
+
+.card .play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.play img{
+  width: 40px;
+  height: 40px;
+}
+
+.play:hover {
   cursor: pointer;
 }
 
