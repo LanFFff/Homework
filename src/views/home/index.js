@@ -1,12 +1,47 @@
 import $ from 'jquery';
 import card from '../../components/card.art';
-import loading from '../../components/loading.art';
 
 import { playSongClick } from '../../utils';
 import { likeSongClick } from '../../utils';
 
 export const homeInit = () => {
     let songsTemp = [];
+
+    $('.more-icon').click(() => {
+        window.location.hash = '#/about';
+    });
+
+    let player;
+    const onPlayerReady = (event) => {
+        event.target.mute().playVideo();
+    };
+
+    let done = false;
+    const onPlayerStateChange = (event) => {
+        if (event.data == YT.PlayerState.PLAYING && done) {
+            setTimeout(stopVideo, 6000);
+            done = true;
+        }
+    };
+    const stopVideo = () => {
+        player.stopVideo();
+    };
+
+    const onYouTubeIframeAPIReady = () => {
+        player = new YT.Player('video-player', {
+            height: '360',
+            width: '100%',
+            videoId: 'eZh1mC1vPgw',
+            events: {
+                onReady: onPlayerReady,
+                onStateChange: onPlayerStateChange,
+            },
+        });
+    };
+
+    window.YT.ready(() => {
+        onYouTubeIframeAPIReady();
+    });
 
     $('.loading-container').show();
     // 获取top50首歌曲
@@ -65,38 +100,4 @@ export const homeInit = () => {
             },
         });
     });
-
-    $('.more-icon').click(() => {
-        window.location.hash = '#/about';
-    });
-
-    let player;
-    const onPlayerReady = (event) => {
-        event.target.playVideo();
-    };
-
-    let done = false;
-    const onPlayerStateChange = (event) => {
-        if (event.data == YT.PlayerState.PLAYING && !done) {
-            setTimeout(stopVideo, 6000);
-            done = true;
-        }
-    };
-    const stopVideo = () => {
-        player.stopVideo();
-    };
-
-    const onYouTubeIframeAPIReady = () => {
-        player = new YT.Player('video-player', {
-            height: '360',
-            width: '640',
-            videoId: 'eZh1mC1vPgw',
-            events: {
-                onReady: onPlayerReady,
-                onStateChange: onPlayerStateChange,
-            },
-        });
-    };
-
-    // onYouTubeIframeAPIReady();
 };
