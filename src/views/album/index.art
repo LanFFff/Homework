@@ -1,6 +1,6 @@
 <div class="album">
     <section>
-        <div id="album-list"></div>
+        <div id="album-list" class="list"></div>
     </section>
 </div>
 <script src="./index.js"></script>

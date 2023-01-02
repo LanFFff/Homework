@@ -12,12 +12,9 @@
       <input type="text" id="search-key" name="search-key" placeholder="请输入关键字搜索"/>
       <button type="submit" id="search-submit">搜索</button>
     </div>
-    <audio id="song-player" controls>
-      <source id="player-source" src="https://music.163.com/song/media/outer/url?id.mp3" type="audio/mpeg">
-    </audio>
   </section>
   <section>
-    <div id="music-list"></div>
+    <div id="music-list" class="list"></div>
   </section>
 </div>
 <script src="https://www.youtube.com/iframe_api"></script>
