@@ -1,7 +1,0 @@
-{{each songs song}}
-  <div class="card">
-    <strong>{{song.name}}</strong>
-    <span class="margin-top-s">专辑：{{song.album.name}}</span>
-    <em class="margin-top-m">{{song.alias[0]}}</em>
-  </div>
-{{/each}}

@@ -1,13 +1,19 @@
 import $ from 'jquery';
-import card from '../../components/card.art';
+import dayjs from 'dayjs';
+import album from '../../components/album.art';
 
-export const homeInit = () => {
-    // 获取top50首歌曲
+export const albumInit = () => {
+    // 获取前50首歌曲
     $.ajax({
-        url: 'https://netease-cloud-music-api-tan-xi.vercel.app/artist/top/song?id=980025',
+        url: 'https://netease-cloud-music-api-tan-xi.vercel.app/artist/album?id=980025&limit=45',
         success: (res) => {
-            const songs = res.songs;
-            $('#music-list').append(card({ songs }));
+            const albums = res.hotAlbums;
+            albums.forEach((item) => {
+                console.log(item.publishTime);
+
+                item.publishTime = dayjs(item.publishTime).format('YYYY-MM-DD');
+            });
+            $('#album-list').append(album({ albums }));
         },
     });
     $('.more-icon').click(() => {

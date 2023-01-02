@@ -1,0 +1,6 @@
+<div class="album">
+    <section>
+        <div id="album-list"></div>
+    </section>
+</div>
+<script src="./index.js"></script>

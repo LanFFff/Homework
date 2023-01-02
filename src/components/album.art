@@ -1,0 +1,7 @@
+{{each albums album}}
+  <div class="card">
+    <img class="margin-bottom-s" src="{{album.picUrl}}"/>
+    <strong>{{album.name}}</strong>
+    <em class="margin-top-s">{{album.publishTime}}</em>
+  </div>
+{{/each}}
