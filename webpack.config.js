@@ -15,6 +15,7 @@ module.exports = {
             template: path.join(__dirname, './src/index.html'),
             filename: 'index.html',
             inject: true,
+            esModule: false,
         }),
     ],
     module: {
@@ -28,8 +29,15 @@ module.exports = {
                 loader: 'art-template-loader',
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
+                test: /\.(jpg|jpeg|png|gif|svg)$/, // 针对这三种格式的文件使用file-loader处理
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        esModule: false,
+                        name: '[name]_[hash].[ext]',
+                        outputPath: 'images/',
+                    },
+                },
             },
         ],
     },
